@@ -52,4 +52,5 @@ This version stores everything in the browser's `localStorage` and does not tran
 - Validate and sanitize all fields server-side before storing them (the client-side validation in this app is a UX convenience, not a security boundary).
 - If storing personally identifiable information in a database, encrypt at rest, restrict access by role, and define a retention/deletion policy consistent with your privacy statement.
 - Update the in-app privacy statement (Screen 9) to accurately describe the new data flow before publishing.
-GitHub Pages deployment enabled.
+
+GitHub Pages deployment enabled. 
