@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Performance-to-Promotion Diagnostic™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =========================================================
+     APP SHELL — Discovery Call Edition (~45 minutes)
+========================================================= -->
+<div id="app">
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="brand-lockup">
+      <div class="brand-mark" aria-hidden="true">
+        <img id="jms-logo" src="" alt="" class="logo-placeholder" data-placeholder="JMS Creative Leadership Solutions logo">
+      </div>
+      <div class="brand-text">
+        <p class="eyebrow">JMS Creative Leadership Solutions</p>
+        <h1>The Performance‑to‑Promotion Diagnostic<span class="tm">™</span></h1>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-ghost btn-small" id="headerClearBtn">Clear</button>
+    </div>
+  </header>
+
+  <!-- PROGRESS -->
+  <nav class="progress-rail" id="progressRail" aria-label="Diagnostic progress">
+    <ol id="progressList"></ol>
+  </nav>
+
+  <main class="screen-viewport">
+
+    <!-- SCREEN 1: WELCOME -->
+    <section class="screen" data-screen="welcome" id="screen-welcome">
+      <div class="screen-inner welcome-inner">
+        <p class="eyebrow">A 45‑minute discovery diagnostic</p>
+        <h2 class="display-xl">The Performance‑to‑Promotion Diagnostic<span class="tm">™</span></h2>
+        <p class="lede">Your performance may be strong. The question is whether the people making decisions about your future experience you as ready for greater authority, influence, promotion, and compensation.</p>
+        <p class="lede-secondary">In about 45 minutes, this will surface where your competence is failing to convert, and give you 3 concrete next steps.</p>
+        <div class="gauge-hero" id="heroGauge" aria-hidden="true"></div>
+        <button class="btn btn-primary btn-large" id="startBtn">Start Diagnostic</button>
+        <p class="fine-print">This is a proprietary professional‑development diagnostic and structured decision‑support tool. It is not a clinical, psychological, medical, or validated psychometric assessment.</p>
+        <div class="resume-banner" id="resumeBanner" hidden>
+          <p>We found a saved session in progress.</p>
+          <div class="resume-actions">
+            <button class="btn btn-secondary" id="resumeBtn">Resume where I left off</button>
+            <button class="btn btn-ghost" id="discardBtn">Start over</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: PARTICIPANT INFORMATION -->
+    <section class="screen" data-screen="participant" id="screen-participant">
+      <div class="screen-inner">
+        <p class="eyebrow">Step 1 &middot; ~2 minutes</p>
+        <h2>Participant Information</h2>
+        <p class="screen-intro">Facilitators may leave optional fields blank.</p>
+        <form id="participantForm" class="form-grid">
+          <div class="field"><label for="firstName">First name <span class="req">*</span></label><input type="text" id="firstName" required></div>
+          <div class="field"><label for="lastName">Last name <span class="req">*</span></label><input type="text" id="lastName" required></div>
+          <div class="field"><label for="title">Current title</label><input type="text" id="title"></div>
+          <div class="field field-wide">
+            <label for="primaryGoal">Primary goal <span class="req">*</span></label>
+            <select id="primaryGoal" required>
+              <option value="">Select one</option>
+              <option>Promotion</option>
+              <option>Higher compensation</option>
+              <option>Expanded authority</option>
+              <option>Greater strategic influence</option>
+              <option>Career clarity</option>
+              <option>Stronger executive credibility</option>
+              <option>Preparing for an external move</option>
+            </select>
+          </div>
+          <div class="field"><label for="facilitatorName">Discovery call facilitator name</label><input type="text" id="facilitatorName"></div>
+          <div class="field"><label for="sessionDate">Date</label><input type="date" id="sessionDate"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: CURRENT SITUATION -->
+    <section class="screen" data-screen="situation" id="screen-situation">
+      <div class="screen-inner">
+        <p class="eyebrow">Step 2 &middot; ~3 minutes</p>
+        <h2>Current Situation</h2>
+        <div class="field field-wide">
+          <label>What best describes your current situation? <span class="req">*</span> <span class="hint">(select all that apply)</span></label>
+          <div class="radio-stack" id="situationRadios"></div>
+        </div>
+        <div class="field field-wide"><label for="q_proud_result">What result are you most proud of from the past 12 months?</label><textarea id="q_proud_result" rows="2"></textarea></div>
+        <div class="field field-wide"><label for="q_result_blocked">What do you believe is blocking that from translating into your next opportunity?</label><textarea id="q_result_blocked" rows="2"></textarea></div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: RATING QUESTIONS -->
+    <section class="screen" data-screen="ratings" id="screen-ratings">
+      <div class="screen-inner">
+        <p class="eyebrow">Step 3 &middot; ~10 minutes</p>
+        <h2>Rate Each Statement</h2>
+        <p class="screen-intro">1 = Rarely true &nbsp;·&nbsp; 2 = Sometimes true &nbsp;·&nbsp; 3 = Often true &nbsp;·&nbsp; 4 = Usually true &nbsp;·&nbsp; 5 = Consistently true</p>
+        <div class="live-risk-panel">
+          <div class="gauge" id="liveRiskGauge"></div>
+          <div class="live-risk-copy">
+            <p class="live-risk-label">Conversion Risk</p>
+            <p class="live-risk-def">This starts at 100% and moves down as the answers show where the performance is not converting into recognition, authority, and advancement. It doesn't measure competence — it measures how well or not your work is currently translating into your next move.</p>
+          </div>
+        </div>
+        <div id="ratingGroups"></div>
+      </div>
+    </section>
+
+    <!-- SCREEN 5: RESULTS + NEXT STEPS -->
+    <section class="screen" data-screen="results" id="screen-results">
+      <div class="screen-inner">
+        <p class="eyebrow">Step 4 &middot; ~15 minutes of conversation</p>
+        <h2>Your Results</h2>
+        <div class="overall-score-panel">
+          <div class="gauge-large" id="overallGauge"></div>
+          <div class="overall-score-meta">
+            <p class="score-band" id="overallBand"></p>
+            <p class="score-caveat" id="scoreCaveat"></p>
+          </div>
+        </div>
+        <div class="dimension-grid" id="dimensionGrid"></div>
+        <div class="results-summary-cards" id="resultsSummaryCards"></div>
+
+        <div class="rubric-block">
+          <h3>Scoring Rubric — How to Read This</h3>
+          <p class="rubric-intro">Every score in this diagnostic is a <strong>risk score</strong>: 100% is the starting point (highest risk), and it only moves down as answers show where performance is converting well.</p>
+          <table class="rubric-table">
+            <thead><tr><th>Risk Range</th><th>Label</th><th>What It Means</th></tr></thead>
+            <tbody id="rubricTable"></tbody>
+          </table>
+        </div>
+
+        <div id="facilitatorPromptsBlock">
+          <h3>Conversation Prompts</h3>
+          <div id="facilitatorPrompts"></div>
+        </div>
+
+        <div class="next-steps-block">
+          <h3>3 Next Steps</h3>
+          <ol class="next-steps-list" id="nextStepsList"></ol>
+        </div>
+
+        <div class="recommendation-line" id="recommendationLine"></div>
+      </div>
+    </section>
+
+    <!-- SCREEN 6: CLIENT SUMMARY -->
+    <section class="screen" data-screen="summary" id="screen-summary">
+      <div class="screen-inner">
+        <div class="summary-toolbar no-print">
+          <button class="btn btn-secondary" id="printBtn">Print summary</button>
+          <button class="btn btn-secondary" id="pdfBtn">Download PDF</button>
+          <button class="btn btn-secondary" id="exportJsonBtn">Export JSON</button>
+          <button class="btn btn-secondary" id="exportCsvBtn">Export CSV</button>
+          <button class="btn btn-ghost" id="resetBtn">Reset assessment</button>
+        </div>
+
+        <div id="printableSummary" class="printable-summary">
+          <div class="summary-header">
+            <img id="jms-logo-summary" src="" alt="" class="logo-placeholder logo-placeholder-summary" data-placeholder="JMS Creative Leadership Solutions logo">
+            <div>
+              <h2>Your Snapshot</h2>
+              <p class="powered-by">The Performance‑to‑Promotion Diagnostic<span class="tm">™</span></p>
+            </div>
+          </div>
+          <div id="summaryContent"></div>
+
+          <div class="field field-wide">
+            <label for="participantCommitments">Your commitment</label>
+            <textarea id="participantCommitments" rows="3" placeholder="What are you committing to over the next 90 days?"></textarea>
+          </div>
+          <div class="field field-wide">
+            <label for="facilitatorNotes">Notes</label>
+            <textarea id="facilitatorNotes" rows="3" placeholder="Notes from the call"></textarea>
+          </div>
+
+          <div class="summary-footer">
+            <p class="confidentiality-statement">This diagnostic and its results are confidential and intended solely for the participant named above. Please do not share or distribute without permission.</p>
+            <p>www.thenicolefsmith.com</p>
+          </div>
+        </div>
+
+        <div class="privacy-statement no-print">
+          <h3>Privacy statement</h3>
+          <p>All responses are stored locally in your browser. Nothing is transmitted to an external server in this version of the tool.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NAVIGATION -->
+  <footer class="app-footer no-print">
+    <button class="btn btn-ghost" id="prevBtn">Previous</button>
+    <p class="save-indicator" id="saveIndicator" aria-live="polite"></p>
+    <button class="btn btn-primary" id="nextBtn">Next</button>
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
