@@ -85,7 +85,7 @@ a { color: var(--color-secondary); }
   border-radius: var(--radius-sm);
   background: var(--color-surface-sunken);
   border: 1px dashed var(--color-border);
-  display: block;
+  display: none;
 }
 .logo-placeholder:not([src]), .logo-placeholder[src=""] { content: ""; }
 
