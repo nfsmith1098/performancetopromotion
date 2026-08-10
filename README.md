@@ -1,4 +1,4 @@
-# The Performance-to-Promotion Diagnostic™ — Discovery Call Edition
+# The EQ Impact® Performance-to-Promotion Diagnostic™ — Discovery Call Edition
 
 A static, self-contained web app (`index.html`, `styles.css`, `script.js`) built to run inside a single ~45-minute discovery call: participant info → situation → 15 rating statements (3 per dimension) → one combined results screen (score, top strength/barriers, live conversation prompts, 3 next steps) → a short client summary. No build step, no server, no external dependencies except two CDN libraries used only for the PDF export button.
 
