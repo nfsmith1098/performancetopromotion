@@ -48,14 +48,36 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 { text-align: center; font-family: var(--font-heading); font-weight: 600; margin: 0 0 0.4em; color: var(--color-primary); }
-h2 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem); letter-spacing: -0.01em; }
-h3 { font-size: 1.2rem; }
-p { margin: 0 0 1em; }
-.tm, .reg { font-size: 0.55em; vertical-align: super; font-family: var(--font-body); }
+h1, h2, h3, h4 {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin: 0 0 0.4em;
+  color: var(--color-primary);
+}
 
-a { color: var(--color-secondary); }
+h2 {
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+  letter-spacing: -0.01em;
+}
 
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.tm, .reg {
+  font-size: 0.55em;
+  vertical-align: super;
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--color-secondary);
+}
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
